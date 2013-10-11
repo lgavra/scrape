@@ -32,3 +32,13 @@ Will join arrays for you, if you are trying to remove duplicates when adding mul
 
 ### download
 Will turn objects into csv format then convert it into an excel file and download in the same folder of the script.
+
+
+## Author
+
+**Lior Gavra**
+
+
+## Examples
+
+Currently there is one example that can be found in the [examples] (https://github.com/lgavra/scrape/tree/master/example) folder.
