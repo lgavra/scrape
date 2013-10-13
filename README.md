@@ -39,3 +39,8 @@ Will turn objects into csv format then convert it into an excel file and downloa
 ## Examples
 
 Currently there is one example that can be found in the [examples] (https://github.com/lgavra/scrape/tree/master/example) folder.
+
+
+## Tests
+
+Currently there is one example that can be found in the [tests] (https://github.com/lgavra/scrape/tree/master/test) folder.
