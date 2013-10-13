@@ -1,8 +1,7 @@
-var request, cheerio, config, Scrape, fs;
+var request, cheerio, Scrape, fs;
 fs = require('fs');
 request = require('request');
 cheerio = require('cheerio');
-config = require('./config.js');
 
 Scrape = (function () {
     //used to setup what is going to be Scraped
@@ -31,8 +30,10 @@ Scrape = (function () {
      //used to loop through all pages
     Scrape.prototype.page = function (cb) {
         var _this = this;
+        //Had page_number set in my config page
+        var page_number;
         return this.page_range.forEach(function (i) {
-            return request("" + _this.url + config.url.pageQ + i, function (err, res, body) {
+            return request("" + _this.url + page_number + i, function (err, res, body) {
                 if (err) { throw err; }
                 return cb(cheerio.load(body));
             });
@@ -54,19 +55,8 @@ o:      for (i = 0, n = arr.length; i < n; i++) {
         return cb(r);
     };
 
-    //remove duplicates for single elements
-    Scrape.prototype.unique_elements = function (arr, cb) {
-        return [].reduce.call(arr, function (previous, current, index, array) {
-            previous[current.toString() + typeof (current)] = current;
-            return array.length - 1 == index ? Object.keys(previous).reduce(function (prev, cur) {
-                prev.push(previous[cur]);
-                return cb(prev);
-            }, []) : previous;
-        }, {});
-    };
 
     //convert to and download to xls (excel file) comma appears on the second and every title following
-    //can include this with duplicate removal to avoid double looping
     Scrape.prototype.download = function (arr) {
         var newResults, newR, x;
         newResults = [];

@@ -54,19 +54,9 @@ o:      for (i = 0, n = arr.length; i < n; i++) {
         return cb(r);
     };
 
-    //remove duplicates for single elements
-    Scrape.prototype.unique_elements = function (arr, cb) {
-        return [].reduce.call(arr, function (previous, current, index, array) {
-            previous[current.toString() + typeof (current)] = current;
-            return array.length - 1 == index ? Object.keys(previous).reduce(function (prev, cur) {
-                prev.push(previous[cur]);
-                return cb(prev);
-            }, []) : previous;
-        }, {});
-    };
+  
 
     //convert to and download to xls (excel file) comma appears on the second and every title following
-    //can include this with duplicate removal to avoid double looping
     Scrape.prototype.download = function (arr) {
         var newResults, newR, x;
         newResults = [];
