@@ -1,7 +1,7 @@
 scrape
 ========
 
-Use Node.js to scrape webpages.
+Use Node.js to scrape webpages. (Once scraped, all commands are meant to be used for objects in a set of an array, not integers/strings but key: value pairs)
 
 ## Commands
 
@@ -17,9 +17,6 @@ Will loop through each page, if you have multiple pages. Otherwise it will just 
 
 ### unique
 Will remove duplicate objects, can add more keys or less keys depending on what you want to remove based on.
-
-### unique_elements
-Will remove duplicates of integers or strings.
 
 ### remove
 Will remove items from the array based on exact matches.
